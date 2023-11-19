@@ -30,6 +30,11 @@
         <joint name="Second_joint" value="-1.57"/>
         <joint name="Third_joint" value="1.57"/>
     </group_state>
+    <group_state name="retracted" group="robot_arm">
+        <joint name="First_joint" value="0"/>
+        <joint name="Second_joint" value="-3.1415"/>
+        <joint name="Third_joint" value="3.1415"/>
+    </group_state>
     <!--DISABLE COLLISIONS: By default it is assumed that any link of the robot could potentially come into collision with any other link in the robot. This tag disables collision checking between a specified pair of links. -->
     <disable_collisions link1="End_effector" link2="First_link" reason="Never"/>
     <disable_collisions link1="End_effector" link2="Second_link" reason="Never"/>
