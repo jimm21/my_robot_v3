@@ -16,11 +16,10 @@
         <!--spawn model-->
         <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-x $(arg arg_x) -y $(arg arg_y) -z $(arg arg_z) -Y $(arg arg_Y) -param robot_description -urdf -model robot_arm_urdf -J First_joint 0.0 -J Second_joint 0.0 -J Third_joint 0.0" />
 
+        <!--Load and launch the joint trajectory controller-->
+        <rosparam file ="$(find robot_arm_urdf)/config/joint_trajectory_controller.yaml" command="load"/>
+        <node name= "controller_spawner" pkg= "controller_manager" type="spawner" respawn="false" output="screen" args="joint_state_controller robot_arm_controller"/>
+
         <!-- Robot State Publisher for TF of each joint: publishes all the current states of the joint, then RViz can visualize -->
-        <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen">
-        </node>
-
-        <!-- Load RVIZ configuration -->
-        <node name="rviz" pkg="rviz" type="rviz" args="-d $(find robot_arm_urdf)/config/rviz_config.rviz" />
-
+        <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen"/>
 </launch>
