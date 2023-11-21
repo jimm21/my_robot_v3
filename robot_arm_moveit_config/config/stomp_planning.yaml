@@ -1,5 +1,5 @@
-stomp/robot_arm:
-  group_name: robot_arm
+stomp/robotic_arm:
+  group_name: robotic_arm
   optimization:
     num_timesteps: 60
     num_iterations: 40
