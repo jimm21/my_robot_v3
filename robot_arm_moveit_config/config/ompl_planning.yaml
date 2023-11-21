@@ -194,5 +194,3 @@ robotic_arm:
     - AITstar
     - ABITstar
     - BITstar
-  projection_evaluator: joints(First_joint,Second_joint)
-  longest_valid_segment_fraction: 0.005
